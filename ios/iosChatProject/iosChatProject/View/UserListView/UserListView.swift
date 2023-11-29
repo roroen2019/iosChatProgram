@@ -15,6 +15,7 @@ struct UserListView: View {
         
         NavigationView {
             VStack {
+                // 상단
                 HStack {
                     Text("유저")
                         .font(.title)
@@ -41,15 +42,17 @@ struct UserListView: View {
                 }
                 .padding(.horizontal, 20)
                 
-                
+                // 리스트
                 List{
                     ForEach(viewModel.userList) { item in
                         
                         NavigationLink {
                             // 다음 이동할 뷰 설정
+                            ChatView(userKey: item.postId)
                         } label: {
                             UserListCell(imageUrl: "", name: item.title, sub: String(item.postId))
                                 .frame(height: 40)
+                                .listRowSeparator(.hidden)
                         }
                     }
                 }

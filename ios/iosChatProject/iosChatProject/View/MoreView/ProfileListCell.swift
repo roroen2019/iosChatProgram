@@ -1,16 +1,20 @@
 //
-//  UserListCell.swift
+//  ProfileListCell.swift
 //  iosChatProject
 //
-//  Created by 이상준 on 2023/11/27.
+//  Created by 이상준 on 2023/11/29.
 //
-
+/*
+ 더보기 리스트 프로필 셀
+ */
 import SwiftUI
 
-struct UserListCell: View {
+struct ProfileListCell: View {
+    
     var imageUrl: String
     var name: String
     var sub: String
+    
     
     var body: some View {
         HStack {
@@ -23,13 +27,14 @@ struct UserListCell: View {
             }
             .frame(width: 50, height: 50)
             
-            VStack {
+            VStack(alignment: .center) {
                 Text(name)
-                    .padding(.bottom, 4)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                
                 Text(sub)
                     .foregroundColor(Color.black.opacity(0.6))
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.caption)
             }
             .padding(.leading, 10)
             

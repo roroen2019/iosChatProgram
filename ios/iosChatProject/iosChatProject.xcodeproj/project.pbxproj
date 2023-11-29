@@ -14,12 +14,21 @@
 		42E3FDC52B144F1F00BDFCBA /* iosChatProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDC42B144F1F00BDFCBA /* iosChatProjectTests.swift */; };
 		42E3FDCF2B144F1F00BDFCBA /* iosChatProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDCE2B144F1F00BDFCBA /* iosChatProjectUITests.swift */; };
 		42E3FDD12B144F1F00BDFCBA /* iosChatProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDD02B144F1F00BDFCBA /* iosChatProjectUITestsLaunchTests.swift */; };
-		42E3FDE02B145ACF00BDFCBA /* CustomTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDDF2B145ACF00BDFCBA /* CustomTab.swift */; };
 		42E3FDE42B1463D100BDFCBA /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDE32B1463D100BDFCBA /* UserListView.swift */; };
 		42E3FDE72B14645100BDFCBA /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDE62B14645100BDFCBA /* MoreView.swift */; };
 		42E3FDE92B14722B00BDFCBA /* UserListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDE82B14722B00BDFCBA /* UserListViewViewModel.swift */; };
 		42E3FDEB2B14736200BDFCBA /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDEA2B14736200BDFCBA /* UserListViewModel.swift */; };
 		42E3FDED2B14831400BDFCBA /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDEC2B14831400BDFCBA /* UserListCell.swift */; };
+		42E3FDF02B16E55900BDFCBA /* SnsLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDEF2B16E55900BDFCBA /* SnsLoginView.swift */; };
+		42E3FDF22B16E79B00BDFCBA /* CustomLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDF12B16E79B00BDFCBA /* CustomLoginButton.swift */; };
+		42E3FDF42B16F14C00BDFCBA /* SnsLoginViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDF32B16F14C00BDFCBA /* SnsLoginViewViewModel.swift */; };
+		42E3FDF72B16FED900BDFCBA /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDF62B16FED900BDFCBA /* MainTabView.swift */; };
+		42E3FDF92B170C0300BDFCBA /* ProfileListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDF82B170C0300BDFCBA /* ProfileListCell.swift */; };
+		42E3FDFB2B170C6A00BDFCBA /* MoreListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDFA2B170C6A00BDFCBA /* MoreListCell.swift */; };
+		42E3FDFD2B171A4B00BDFCBA /* MoreViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDFC2B171A4B00BDFCBA /* MoreViewViewModel.swift */; };
+		42E3FE062B172D6400BDFCBA /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE052B172D6400BDFCBA /* ChatView.swift */; };
+		42E3FE092B17388D00BDFCBA /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE082B17388D00BDFCBA /* ChatListView.swift */; };
+		42E3FE0B2B17391D00BDFCBA /* ChatListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE0A2B17391D00BDFCBA /* ChatListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,12 +59,21 @@
 		42E3FDCA2B144F1F00BDFCBA /* iosChatProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosChatProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E3FDCE2B144F1F00BDFCBA /* iosChatProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosChatProjectUITests.swift; sourceTree = "<group>"; };
 		42E3FDD02B144F1F00BDFCBA /* iosChatProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosChatProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		42E3FDDF2B145ACF00BDFCBA /* CustomTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTab.swift; sourceTree = "<group>"; };
 		42E3FDE32B1463D100BDFCBA /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		42E3FDE62B14645100BDFCBA /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		42E3FDE82B14722B00BDFCBA /* UserListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewViewModel.swift; sourceTree = "<group>"; };
 		42E3FDEA2B14736200BDFCBA /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		42E3FDEC2B14831400BDFCBA /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
+		42E3FDEF2B16E55900BDFCBA /* SnsLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnsLoginView.swift; sourceTree = "<group>"; };
+		42E3FDF12B16E79B00BDFCBA /* CustomLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoginButton.swift; sourceTree = "<group>"; };
+		42E3FDF32B16F14C00BDFCBA /* SnsLoginViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnsLoginViewViewModel.swift; sourceTree = "<group>"; };
+		42E3FDF62B16FED900BDFCBA /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		42E3FDF82B170C0300BDFCBA /* ProfileListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListCell.swift; sourceTree = "<group>"; };
+		42E3FDFA2B170C6A00BDFCBA /* MoreListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreListCell.swift; sourceTree = "<group>"; };
+		42E3FDFC2B171A4B00BDFCBA /* MoreViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewViewModel.swift; sourceTree = "<group>"; };
+		42E3FE052B172D6400BDFCBA /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		42E3FE082B17388D00BDFCBA /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
+		42E3FE0A2B17391D00BDFCBA /* ChatListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +124,7 @@
 		42E3FDB22B144F1D00BDFCBA /* iosChatProject */ = {
 			isa = PBXGroup;
 			children = (
+				42E3FE012B17227100BDFCBA /* Tool */,
 				42E3FDDD2B145AAB00BDFCBA /* View */,
 				42E3FDB32B144F1D00BDFCBA /* iosChatProjectApp.swift */,
 				42E3FDB52B144F1D00BDFCBA /* ContentView.swift */,
@@ -143,19 +162,14 @@
 		42E3FDDD2B145AAB00BDFCBA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				42E3FE072B17387400BDFCBA /* ChatListView */,
+				42E3FE042B172D1600BDFCBA /* ChatView */,
+				42E3FDF52B16FECE00BDFCBA /* MainTabView */,
+				42E3FDEE2B16E53D00BDFCBA /* SNSLoginView */,
 				42E3FDE52B14644300BDFCBA /* MoreView */,
 				42E3FDE12B14637100BDFCBA /* UserListView */,
-				42E3FDDE2B145AC200BDFCBA /* CustomTab */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		42E3FDDE2B145AC200BDFCBA /* CustomTab */ = {
-			isa = PBXGroup;
-			children = (
-				42E3FDDF2B145ACF00BDFCBA /* CustomTab.swift */,
-			);
-			path = CustomTab;
 			sourceTree = "<group>";
 		};
 		42E3FDE12B14637100BDFCBA /* UserListView */ = {
@@ -173,8 +187,53 @@
 			isa = PBXGroup;
 			children = (
 				42E3FDE62B14645100BDFCBA /* MoreView.swift */,
+				42E3FDFC2B171A4B00BDFCBA /* MoreViewViewModel.swift */,
+				42E3FDF82B170C0300BDFCBA /* ProfileListCell.swift */,
+				42E3FDFA2B170C6A00BDFCBA /* MoreListCell.swift */,
 			);
 			path = MoreView;
+			sourceTree = "<group>";
+		};
+		42E3FDEE2B16E53D00BDFCBA /* SNSLoginView */ = {
+			isa = PBXGroup;
+			children = (
+				42E3FDEF2B16E55900BDFCBA /* SnsLoginView.swift */,
+				42E3FDF32B16F14C00BDFCBA /* SnsLoginViewViewModel.swift */,
+				42E3FDF12B16E79B00BDFCBA /* CustomLoginButton.swift */,
+			);
+			path = SNSLoginView;
+			sourceTree = "<group>";
+		};
+		42E3FDF52B16FECE00BDFCBA /* MainTabView */ = {
+			isa = PBXGroup;
+			children = (
+				42E3FDF62B16FED900BDFCBA /* MainTabView.swift */,
+			);
+			path = MainTabView;
+			sourceTree = "<group>";
+		};
+		42E3FE012B17227100BDFCBA /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		42E3FE042B172D1600BDFCBA /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				42E3FE052B172D6400BDFCBA /* ChatView.swift */,
+			);
+			path = ChatView;
+			sourceTree = "<group>";
+		};
+		42E3FE072B17387400BDFCBA /* ChatListView */ = {
+			isa = PBXGroup;
+			children = (
+				42E3FE082B17388D00BDFCBA /* ChatListView.swift */,
+				42E3FE0A2B17391D00BDFCBA /* ChatListCell.swift */,
+			);
+			path = ChatListView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,14 +366,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E3FDF42B16F14C00BDFCBA /* SnsLoginViewViewModel.swift in Sources */,
+				42E3FDF92B170C0300BDFCBA /* ProfileListCell.swift in Sources */,
 				42E3FDED2B14831400BDFCBA /* UserListCell.swift in Sources */,
-				42E3FDE02B145ACF00BDFCBA /* CustomTab.swift in Sources */,
 				42E3FDB62B144F1D00BDFCBA /* ContentView.swift in Sources */,
+				42E3FE092B17388D00BDFCBA /* ChatListView.swift in Sources */,
 				42E3FDEB2B14736200BDFCBA /* UserListViewModel.swift in Sources */,
 				42E3FDE92B14722B00BDFCBA /* UserListViewViewModel.swift in Sources */,
 				42E3FDB42B144F1D00BDFCBA /* iosChatProjectApp.swift in Sources */,
+				42E3FE062B172D6400BDFCBA /* ChatView.swift in Sources */,
 				42E3FDE42B1463D100BDFCBA /* UserListView.swift in Sources */,
 				42E3FDE72B14645100BDFCBA /* MoreView.swift in Sources */,
+				42E3FDF22B16E79B00BDFCBA /* CustomLoginButton.swift in Sources */,
+				42E3FDFD2B171A4B00BDFCBA /* MoreViewViewModel.swift in Sources */,
+				42E3FDF02B16E55900BDFCBA /* SnsLoginView.swift in Sources */,
+				42E3FE0B2B17391D00BDFCBA /* ChatListCell.swift in Sources */,
+				42E3FDF72B16FED900BDFCBA /* MainTabView.swift in Sources */,
+				42E3FDFB2B170C6A00BDFCBA /* MoreListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,8 +547,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -508,8 +575,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

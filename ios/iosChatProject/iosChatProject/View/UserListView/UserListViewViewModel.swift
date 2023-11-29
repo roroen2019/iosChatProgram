@@ -10,10 +10,7 @@ import Combine
 
 class UserListViewViewModel: ObservableObject {
     @Published var userList: [UserListViewModel] = []
-    var cancellables: Set<AnyCancellable> = []
-    
-    
-    
+    private var cancellables: Set<AnyCancellable> = []
     
     // Combine을 사용하여 데이터를 가져오는 비동기 메서드
     func fetchData() {
