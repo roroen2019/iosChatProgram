@@ -12,6 +12,9 @@ class UserListViewViewModel: ObservableObject {
     @Published var userList: [UserListViewModel] = []
     private var cancellables: Set<AnyCancellable> = []
     
+    @Published var friendAddAction = false //친구찾기 버튼
+    @Published var searchAction = false //검색버튼
+    
     // Combine을 사용하여 데이터를 가져오는 비동기 메서드
     func fetchData() {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }

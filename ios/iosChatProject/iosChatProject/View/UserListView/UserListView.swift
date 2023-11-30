@@ -11,6 +11,8 @@ struct UserListView: View {
     
     @ObservedObject var viewModel = UserListViewViewModel()
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         
         NavigationView {
@@ -23,12 +25,37 @@ struct UserListView: View {
                     Spacer(minLength: 0)
                     
                     HStack {
+                        
+                        Button {
+                            
+                            viewModel.friendAddAction = true
+                        } label: {
+                            Image(systemName: "plus.app")
+                                .foregroundColor(Color.black)
+                        }
+                        .sheet(isPresented: $viewModel.friendAddAction) {
+                            // 친구추가화면 띄우기
+                            FriendAddView(isDismiss: $viewModel.friendAddAction)
+                                
+                        }
+                        
+                        
                         Button {
                             // 검색화면 띄우기
+                            withAnimation(.easeIn(duration: 3)) {
+                                viewModel.searchAction = true
+                            }
+                            
                         } label: {
                             Image(systemName: "magnifyingglass")
                                 .foregroundColor(Color.black)
                         }
+                        .fullScreenCover(isPresented: $viewModel.searchAction) {
+
+                            SearchView()
+
+                        }
+                        
                         
                         Menu {
                             Button("오름차순 정렬", action: viewModel.listAscending)
@@ -63,6 +90,7 @@ struct UserListView: View {
                 viewModel.fetchData()
             }
         }
+        .navigationBarHidden(true)
     }
 }
 

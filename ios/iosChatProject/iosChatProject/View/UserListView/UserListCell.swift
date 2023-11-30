@@ -19,9 +19,13 @@ struct UserListCell: View {
             AsyncImage(url: URL(string: imageUrl)) { image in
                 image.resizable()
             } placeholder: {
-                Color.red
+                Image(systemName: "person.fill")
+                    .resizable()
+                    
             }
             .frame(width: 50, height: 50)
+            .cornerRadius(10)
+            
             
             VStack {
                 Text(name)
