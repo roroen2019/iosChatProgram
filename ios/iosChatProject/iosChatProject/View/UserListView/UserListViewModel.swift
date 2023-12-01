@@ -23,3 +23,9 @@ struct UserListViewModel: Identifiable, Codable {
         case body
     }
 }
+
+struct testModel: Identifiable, Codable {
+    var id = UUID()
+    
+    let name: String
+}

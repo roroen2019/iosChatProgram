@@ -13,12 +13,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var checkLogin = true
+    
+    @ObservedObject private var viewModel = ContentViewViewModel()
+    
+    init() {
+        // 앱 처음시작할때 앱에 로그인정보가 남아있는지 확인한다
+        viewModel.checkUserData()
+    }
     
     var body: some View {
         
-        if checkLogin {
-            MainTabView(isRoot: $checkLogin)
+        if viewModel.checkLogin {
+            MainTabView(isRoot: $viewModel.checkLogin)
         } else {
             SnsLoginView()
         }

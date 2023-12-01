@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import KakaoSDKUser
 
 class MoreViewViewModel: ObservableObject {
     @Published var isLogout = false
@@ -13,6 +14,28 @@ class MoreViewViewModel: ObservableObject {
     // 로그아웃
     func logout() {
         //로그아웃 api 동작
+        
+        
+        // 카카오 로그아웃
+        UserApi.shared.logout {(error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("logout() success.")
+            }
+        }
+        
+        // 로컬db 초기화
+        LocalDB.shared.dataDelete { error in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("dataDelete success.")
+            }
+            
+        }
         
         
         

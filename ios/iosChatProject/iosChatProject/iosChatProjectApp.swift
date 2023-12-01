@@ -12,6 +12,8 @@ import KakaoSDKAuth
 @main
 struct iosChatProjectApp: App {
     
+    @Environment(\.scenePhase) private var scenePhase
+    
     init() {
         // Kakao SDK 초기화
         KakaoSDK.initSDK(appKey: "19ac6370823009d4c442b926b6a6e7f1")
@@ -26,6 +28,18 @@ struct iosChatProjectApp: App {
                     AuthController.handleOpenUrl(url: url)
                 }
             })
+                .onChange(of: scenePhase) { phase in
+                    switch phase {
+                    case .inactive:
+                        print("app lifeCycle: inactive")
+                    case .active:
+                        print("app lifeCycle: active")
+                    case .background:
+                        print("app lifeCycle: background")
+                    default:
+                        ()
+                    }
+                }
         }
     }
     

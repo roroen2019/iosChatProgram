@@ -87,7 +87,7 @@ struct UserListView: View {
                 
             }
             .onAppear {
-                viewModel.fetchData()
+                viewModel.fetchUserList()
             }
         }
         .navigationBarHidden(true)

@@ -42,8 +42,22 @@ class SnsLoginViewViewModel: ObservableObject {
                 }
                 
                 print("카카오 토큰:\(String(describing: oauthToken))")
-//                let token = oauthToken?.accessToken
-                self.checkKakaoLogin = true
+                let token = oauthToken?.accessToken ?? ""
+                
+                // 토큰 저장
+                guard token != "" else { return }
+                // realm
+                let login = LoginInfo()
+                login.platform = "kakao"
+                login.token = token
+                LocalDB.shared.dataSave(model: login) { result in
+                    switch result {
+                    case .success(_):
+                        self.checkKakaoLogin = true
+                    case .failure(_):
+                        print("로그인정보 저장 실패")
+                    }
+                }
             }
         }
     }

@@ -33,12 +33,67 @@ class UserListViewViewModel: ObservableObject {
             } // 실패, 오류를 발생시키는 map
             .decode(type: [UserListViewModel].self, decoder: JSONDecoder()) //디코딩
             .sink { completion in
+                
                 print("completion 확인:\(completion)")
             } receiveValue: { [weak self] returnPost in
                 self?.userList = returnPost //약한참조
             }
             .store(in: &cancellables)
     }
+    
+    // 친구리스트 요청
+    func fetchUserList() {
+        
+        let endUrl = "kakao"
+        let parameters: [String:Any] = [
+            "name":"sss"
+        ]
+        
+        // 서버에서 리스트가 변동사항이 있다고 알려주면 동작
+        if Common.changeUserListBool {
+            
+//            let result = ApiCaller.shared.getData(endUrl: endUrl, parameters: parameters, returnType: UserListViewModel.self)
+//
+//            result.sink { completion in
+//                print("completion 확인:\(completion)")
+//            } receiveValue: { [weak self] resultData in
+//                self?.userList = [resultData]
+//            }
+//            .store(in: &cancellables)
+            
+            // 밑의코드를 실행시키지 않기위해 return 사용, 밑에는 앱 최초 한번 실행시에만 동작
+            return
+        }
+        
+        // 테스트
+        ApiCaller.shared.getData(endUrl: endUrl, parameters: parameters, returnType: testModel.self) { result in
+            switch result {
+            case .success(let success):
+                print("success:\(success)")
+            case .failure(let failure):
+                print("\(endUrl): \(failure)")
+            }
+        }
+        
+        
+//        // 앱이 처음 한번 실행했을경우
+//        let count = checkStartingApp() // 1 or 2
+//
+//        if count == 1 {
+//            let result = ApiCaller.shared.getData(endUrl: endUrl, parameters: parameters, returnType: UserListViewModel.self)
+//
+//            result.sink { completion in
+//                print("completion 확인:\(completion)")
+//            } receiveValue: { [weak self] resultData in
+//                self?.userList = [resultData]
+//            }
+//            .store(in: &cancellables)
+//        }
+        
+        
+        
+    }
+    
     
     // 리스트 오름차순 정렬
     func listAscending() {
@@ -50,5 +105,27 @@ class UserListViewViewModel: ObservableObject {
         print("내림차순")
     }
     
+    // 앱이 처음 한번 실행했을경우
+    func checkStartingApp() -> Int?{
+        // 값이 있는지 확인, 없으면 처음, 있으면 2번째 실행
+        let result = LocalDB.shared.dataRead(model: FirstStartApp.self)
+        if result == nil {
+            // 처음
+            let first = FirstStartApp()
+            first.startValue = true
+            LocalDB.shared.dataSave(model: first) { result in
+                switch result {
+                case .success(_):
+                    ()
+                case .failure(_):
+                    ()
+                }
+            }
+            return 1
+        } else {
+            // 두번쩨
+            return 2
+        }
+    }
     
 }
