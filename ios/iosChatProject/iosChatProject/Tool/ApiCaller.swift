@@ -20,9 +20,14 @@ enum APIError: Error { //LocalizedError
 
 final class ApiCaller: NSObject {
     static let shared = ApiCaller()
-    private let baseUrl = "http://3.35.138.150/v1/"
+    private let baseUrl = Common.baseUrl
     
     private override init() {}
+    
+    private let headers: HTTPHeaders = [
+        "Content-Type":"application/json",
+        "Accept": "application/json"
+    ]
     
     //MARK: - GET
     /// get method 통신을 사용
@@ -30,7 +35,9 @@ final class ApiCaller: NSObject {
 
         let url = baseUrl + endUrl
 
-        AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString)).response { response in
+        AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: headers)
+            .validate(statusCode: 200..<300)
+            .response { response in
             // 헤더 확인
 //            let header = response.response
 //            print("헤더:\(header)")
@@ -39,12 +46,13 @@ final class ApiCaller: NSObject {
 
             switch response.result {
             case .success(let data):
+//                print(String(data: data!, encoding: .utf8) ?? "Invalid Data")
 
                 // 디코드
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
 
-                guard let result = try? decoder.decode(returnType.self, from: data!) else {
+                guard let result = try? decoder.decode(returnType, from: data!) else {
                     completion(.failure(.faildDecode))
                     return
                 }
@@ -67,8 +75,11 @@ final class ApiCaller: NSObject {
     func postData<T:Codable>(endUrl:String, parameters: [String:Any]?, returnType: T.Type, completion: @escaping (Result<T, APIError>) -> Void ) {
 
         let url = baseUrl + endUrl
+        
 
-        AF.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).response { response in
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .validate(statusCode: 200..<300)
+            .response { response in
             // 헤더 확인
 //            let header = response.response
 //            print("헤더:\(header)")
@@ -77,11 +88,11 @@ final class ApiCaller: NSObject {
 
             switch response.result {
             case .success(let data):
-
+//                print(String(data: data!, encoding: .utf8) ?? "Invalid Data")
                 // 디코드
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-
+                print("디코드 타입 확인:\(returnType)")
                 guard let result = try? decoder.decode(returnType.self, from: data!) else {
                     completion(.failure(.faildDecode))
                     return

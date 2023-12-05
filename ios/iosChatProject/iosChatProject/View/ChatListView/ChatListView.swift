@@ -11,22 +11,26 @@ import SwiftUI
 
 struct ChatListView: View {
     
-    
+    @ObservedObject private var viewModel = ChatListViewViewModel()
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(0..<10, id: \.self) { num in
-                    ChatListCell(imageUrl: "", name: "aaa", sub: "12", time: "22d")
-                        
-                        .listRowSeparator(.hidden)
-                        
+                ForEach(viewModel.chatUserList) { item in
+                    NavigationLink {
+                        ChatView(nickName: item.name, userKey: item.userId)
+                    } label: {
+                        ChatListCell(imageUrl: "", name: item.name, sub: "", time: "22d")
+                            .listRowSeparator(.hidden)
+                    }
                 }
             }
             .listStyle(PlainListStyle())
             .environment(\.defaultMinListRowHeight, 50)
 
-            
+        }
+        .onAppear {
+            viewModel.fetchChatUserList()
         }
     }
 }

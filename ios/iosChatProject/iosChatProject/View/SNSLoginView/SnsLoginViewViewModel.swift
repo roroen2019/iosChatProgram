@@ -56,11 +56,12 @@ class SnsLoginViewViewModel: ObservableObject {
                     return
                 }
 
-
+                print("로그인정보 저장 시작")
                 // realm
                 let login = LoginInfo()
                 login.platform = "kakao"
                 login.token = token
+                login.userKey = ""
                 LocalDB.shared.dataSave(model: login) { result in
                     switch result {
                     case .success(_):

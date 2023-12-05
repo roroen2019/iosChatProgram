@@ -34,8 +34,11 @@ struct iosChatProjectApp: App {
                         print("app lifeCycle: inactive")
                     case .active:
                         print("app lifeCycle: active")
+                        SocketIOManager.shared.establishConnection()
+                        
                     case .background:
                         print("app lifeCycle: background")
+                        SocketIOManager.shared.closeConnection()
                     default:
                         ()
                     }

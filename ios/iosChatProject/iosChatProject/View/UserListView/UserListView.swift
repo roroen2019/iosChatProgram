@@ -69,16 +69,16 @@ struct UserListView: View {
                 }
                 .padding(.horizontal, 20)
                 
-                let _ = print("list \(viewModel.userList)")
+//                let _ = print("list \(viewModel.userList)")
                 // 리스트
                 List{
                     ForEach(viewModel.userList) { item in
                         
                         NavigationLink {
                             // 다음 이동할 뷰 설정
-                            ChatView(userKey: item.postId)
+                            ChatView(nickName: item.name, userKey: item.userKey)
                         } label: {
-                            UserListCell(imageUrl: "", name: item.title, sub: String(item.postId))
+                            UserListCell(imageUrl: item.profileImg, name: item.name, sub: item.subMessage)
                                 .frame(height: 40)
                                 .listRowSeparator(.hidden)
                         }

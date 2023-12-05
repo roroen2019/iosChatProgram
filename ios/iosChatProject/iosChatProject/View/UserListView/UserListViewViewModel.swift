@@ -9,70 +9,69 @@ import SwiftUI
 import Combine
 
 class UserListViewViewModel: ObservableObject {
-    @Published var userList: [UserListViewModel] = []
+    @Published var userList: [Frinds] = []
     private var cancellables: Set<AnyCancellable> = []
     
     @Published var friendAddAction = false //친구찾기 버튼
     @Published var searchAction = false //검색버튼
     
     // Combine을 사용하여 데이터를 가져오는 비동기 메서드
-    func fetchData() {
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
-        
-        URLSession.shared.dataTaskPublisher(for: url)
-            .subscribe(on: DispatchQueue.global(qos: .background)) //subscribe publisher를 background 스레드 사용
-            .receive(on: DispatchQueue.main) // UI 업데이트를 메인 스레드에서 수행
-            .tryMap { data, response -> Data in
-                //예외처리
-                guard let response = response as? HTTPURLResponse,
-                      response.statusCode >= 200 && response.statusCode < 300 else {
-                          throw URLError(.badServerResponse)
-                      }
-                
-                return data
-            } // 실패, 오류를 발생시키는 map
-            .decode(type: [UserListViewModel].self, decoder: JSONDecoder()) //디코딩
-            .sink { completion in
-                print("completion 확인:\(completion)")
-            } receiveValue: { [weak self] returnPost in
-                self?.userList = returnPost //약한참조
-            }
-            .store(in: &cancellables)
-    }
+//    func fetchData() {
+//        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
+//
+//        URLSession.shared.dataTaskPublisher(for: url)
+//            .subscribe(on: DispatchQueue.global(qos: .background)) //subscribe publisher를 background 스레드 사용
+//            .receive(on: DispatchQueue.main) // UI 업데이트를 메인 스레드에서 수행
+//            .tryMap { data, response -> Data in
+//                //예외처리
+//                guard let response = response as? HTTPURLResponse,
+//                      response.statusCode >= 200 && response.statusCode < 300 else {
+//                          throw URLError(.badServerResponse)
+//                      }
+//
+//                return data
+//            } // 실패, 오류를 발생시키는 map
+//            .decode(type: [UserListViewModel].self, decoder: JSONDecoder()) //디코딩
+//            .sink { completion in
+//                print("completion 확인:\(completion)")
+//            } receiveValue: { [weak self] returnPost in
+//                self?.userList = returnPost //약한참조
+//            }
+//            .store(in: &cancellables)
+//    }
     
     // 친구리스트 요청
     func fetchUserList() {
         
-        let endUrl = "kakao"
-        let parameters: [String:Any] = [
-            "name":"sss"
-        ]
+        // 내 키값 가져오기
+        let result = LocalDB.shared.dataRead(model: LoginInfo.self)
+        print("저장정보 확인:\(result)")
+        guard let myKey = result?.first?.userKey else { return }
+        
+        let endUrl = "search-friend/\(myKey)"
+        
         
         // 서버에서 리스트가 변동사항이 있다고 알려주면 동작
         if Common.changeUserListBool {
             
-//            let result = ApiCaller.shared.getData(endUrl: endUrl, parameters: parameters, returnType: UserListViewModel.self)
-//
-//            result.sink { completion in
-//                print("completion 확인:\(completion)")
-//            } receiveValue: { [weak self] resultData in
-//                self?.userList = [resultData]
-//            }
-//            .store(in: &cancellables)
+            ApiCaller.shared.getData(endUrl: endUrl, parameters: nil, returnType: UserListModel.self) { result in
+                switch result {
+                case .success(let success):
+                    print("success:\(success)")
+                    
+                    self.userList = success.data
+                    
+                case .failure(let failure):
+                    print("API - \(endUrl) Error: \(failure)")
+                }
+            }
             
             // 밑의코드를 실행시키지 않기위해 return 사용, 밑에는 앱 최초 한번 실행시에만 동작
             return
         }
         
-        // 테스트
-        ApiCaller.shared.getData(endUrl: endUrl, parameters: parameters, returnType: testModel.self) { result in
-            switch result {
-            case .success(let success):
-                print("success:\(success)")
-            case .failure(let failure):
-                print("\(endUrl): \(failure)")
-            }
-        }
+        
+        
         
         
 //        // 앱이 처음 한번 실행했을경우

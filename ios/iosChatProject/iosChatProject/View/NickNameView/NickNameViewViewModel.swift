@@ -8,8 +8,7 @@
 import Foundation
 
 struct NickNameViewModel : Codable{
-    let code: Int
-    let message: String
+    let code: String
     let userKey: String
 }
 
@@ -21,10 +20,10 @@ class NickNameViewViewModel: ObservableObject {
     func nickNameConfirm(){
         
         // 저장값 가져오기
-        let result = LocalDB.shared.dataRead(model: LoginInfo.self)
+        let localData = LocalDB.shared.dataRead(model: LoginInfo.self)
         
-        let platform = result?.first?.platform ?? ""
-        let token = result?.first?.token ?? ""
+        let platform = localData?.first?.platform ?? ""
+        let token = localData?.first?.token ?? ""
         
         // 토큰값이 빈값이면 false를 리턴
         guard token != "" else {
@@ -48,21 +47,22 @@ class NickNameViewViewModel: ObservableObject {
         ApiCaller.shared.postData(endUrl: url, parameters: parameter, returnType: NickNameViewModel.self) { [weak self] result in
             switch result {
             case .success(let success):
-                print("\(url) success message: \(success)")
+                print("\(url) success")
                 
-                let model = LoginInfo()
-                model.userKey = success.userKey
-                LocalDB.shared.dataSave(model: model) { result in
-                    switch result {
-                    case .success(_):
-                        print("key 저장 성공")
-                        self?.loginComplete = true
-                    case .failure(_):
-                        print("key 저장 실패")
+                let selectModel = localData?.first
+                // 기존 유저정보 업데이트하기
+                LocalDB.shared.dataUpdate(model: selectModel!, key: "userKey", value: success.userKey) { error in
+                    
+                    if let error = error {
+                        print(error)
+                        print("key 업데이트 실패")
                         self?.loginComplete = false
                     }
+                    else {
+                        print("key 업데이트 성공")
+                        self?.loginComplete = true
+                    }
                 }
-                
                 
             case .failure(let failure):
                 print("\(url) failure message: \(failure)")

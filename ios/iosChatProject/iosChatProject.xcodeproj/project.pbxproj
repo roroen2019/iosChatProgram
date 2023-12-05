@@ -40,6 +40,10 @@
 		42E3FE212B19B0C700BDFCBA /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE202B19B0C700BDFCBA /* Common.swift */; };
 		42E3FE2B2B1D99AF00BDFCBA /* NickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE2A2B1D99AF00BDFCBA /* NickNameView.swift */; };
 		42E3FE2D2B1D9B5400BDFCBA /* NickNameViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE2C2B1D9B5400BDFCBA /* NickNameViewViewModel.swift */; };
+		42E3FE2F2B1EF7A500BDFCBA /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE2E2B1EF7A500BDFCBA /* SocketIOManager.swift */; };
+		42E3FE312B1F0A8800BDFCBA /* ChatViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE302B1F0A8800BDFCBA /* ChatViewViewModel.swift */; };
+		42E3FE332B1F113B00BDFCBA /* sampleCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE322B1F113B00BDFCBA /* sampleCode.swift */; };
+		42E3FE352B1F125000BDFCBA /* ChatListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE342B1F125000BDFCBA /* ChatListViewViewModel.swift */; };
 		BC8003FFA4447F1804BBDF03 /* Pods_iosChatProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B61006C61E456B7AE3D3A7 /* Pods_iosChatProjectTests.framework */; };
 		E3DFAA7DD02B9785795FC375 /* Pods_iosChatProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAF029DD8CCA36DC0EF14C1 /* Pods_iosChatProject.framework */; };
 		FFA149B740912844C38A3393 /* Pods_iosChatProject_iosChatProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC91A02D34C3659518520F4B /* Pods_iosChatProject_iosChatProjectUITests.framework */; };
@@ -101,6 +105,10 @@
 		42E3FE202B19B0C700BDFCBA /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		42E3FE2A2B1D99AF00BDFCBA /* NickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameView.swift; sourceTree = "<group>"; };
 		42E3FE2C2B1D9B5400BDFCBA /* NickNameViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewViewModel.swift; sourceTree = "<group>"; };
+		42E3FE2E2B1EF7A500BDFCBA /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		42E3FE302B1F0A8800BDFCBA /* ChatViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewViewModel.swift; sourceTree = "<group>"; };
+		42E3FE322B1F113B00BDFCBA /* sampleCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sampleCode.swift; sourceTree = "<group>"; };
+		42E3FE342B1F125000BDFCBA /* ChatListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewViewModel.swift; sourceTree = "<group>"; };
 		45950F7FAFA09D948E7C568E /* Pods-iosChatProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosChatProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-iosChatProjectTests/Pods-iosChatProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		73727DE834374E7CD2F7EF43 /* Pods-iosChatProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosChatProject.debug.xcconfig"; path = "Target Support Files/Pods-iosChatProject/Pods-iosChatProject.debug.xcconfig"; sourceTree = "<group>"; };
 		73D0891E86889327A7B375FB /* Pods-iosChatProject-iosChatProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosChatProject-iosChatProjectUITests.debug.xcconfig"; path = "Target Support Files/Pods-iosChatProject-iosChatProjectUITests/Pods-iosChatProject-iosChatProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +284,8 @@
 				42E3FE1C2B19A14D00BDFCBA /* LocalDB.swift */,
 				42E3FE1E2B19A3A100BDFCBA /* RealmModel.swift */,
 				42E3FE202B19B0C700BDFCBA /* Common.swift */,
+				42E3FE2E2B1EF7A500BDFCBA /* SocketIOManager.swift */,
+				42E3FE322B1F113B00BDFCBA /* sampleCode.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -284,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				42E3FE052B172D6400BDFCBA /* ChatView.swift */,
+				42E3FE302B1F0A8800BDFCBA /* ChatViewViewModel.swift */,
 			);
 			path = ChatView;
 			sourceTree = "<group>";
@@ -292,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				42E3FE082B17388D00BDFCBA /* ChatListView.swift */,
+				42E3FE342B1F125000BDFCBA /* ChatListViewViewModel.swift */,
 				42E3FE0A2B17391D00BDFCBA /* ChatListCell.swift */,
 			);
 			path = ChatListView;
@@ -582,6 +594,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42E3FDF42B16F14C00BDFCBA /* SnsLoginViewViewModel.swift in Sources */,
+				42E3FE312B1F0A8800BDFCBA /* ChatViewViewModel.swift in Sources */,
 				42E3FDF92B170C0300BDFCBA /* ProfileListCell.swift in Sources */,
 				42E3FE212B19B0C700BDFCBA /* Common.swift in Sources */,
 				42E3FE112B18371500BDFCBA /* FriendAddViewViewModel.swift in Sources */,
@@ -600,9 +613,12 @@
 				42E3FDE42B1463D100BDFCBA /* UserListView.swift in Sources */,
 				42E3FDE72B14645100BDFCBA /* MoreView.swift in Sources */,
 				42E3FDF22B16E79B00BDFCBA /* CustomLoginButton.swift in Sources */,
+				42E3FE2F2B1EF7A500BDFCBA /* SocketIOManager.swift in Sources */,
 				42E3FDFD2B171A4B00BDFCBA /* MoreViewViewModel.swift in Sources */,
 				42E3FDF02B16E55900BDFCBA /* SnsLoginView.swift in Sources */,
 				42E3FE0B2B17391D00BDFCBA /* ChatListCell.swift in Sources */,
+				42E3FE332B1F113B00BDFCBA /* sampleCode.swift in Sources */,
+				42E3FE352B1F125000BDFCBA /* ChatListViewViewModel.swift in Sources */,
 				42E3FDF72B16FED900BDFCBA /* MainTabView.swift in Sources */,
 				42E3FE182B18816100BDFCBA /* SearchViewViewModel.swift in Sources */,
 				42E3FDFB2B170C6A00BDFCBA /* MoreListCell.swift in Sources */,

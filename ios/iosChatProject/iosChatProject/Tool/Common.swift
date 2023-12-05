@@ -12,4 +12,6 @@ import Foundation
 
 struct Common {
     static var changeUserListBool = false //유저리스트 변동사항 확인
+    
+    static let baseUrl = "http://54.180.77.161/v1/"
 }

@@ -37,7 +37,7 @@ class LocalDB {
     }
     
     /// 데이터 저장
-    func dataSave(model:Object, completion:@escaping (Result<Bool, Error>) -> Void) {
+    func dataSave(model:Object, completion: @escaping (Result<Bool, Error>) -> Void) {
         do {
             try realm?.write {
                 realm?.add(model)
@@ -79,9 +79,21 @@ class LocalDB {
                 completion(error)
             }
         }
-        
-        
-        
+    }
+    
+    /// 기존 데이터 업데이트
+    func dataUpdate(model:Object, key:String, value:Any, completion:@escaping (Error?) -> Void) {
+        do {
+            try realm?.write {
+                model.setValue(value, forKey: key)
+                
+                print("값 확인:\(model)")
+                completion(nil)
+            }
+        } catch {
+            print("Error update: \(error)")
+            completion(error)
+        }
     }
     
 }

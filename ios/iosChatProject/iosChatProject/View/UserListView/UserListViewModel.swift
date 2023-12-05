@@ -7,22 +7,26 @@
 
 import Foundation
 
-// 테스트용 모델
-struct UserListViewModel: Identifiable, Codable {
+//  모델
+struct UserListModel: Codable {
+    let code: Int
+    let message: String
+    let data: [Frinds]
+}
+
+struct Frinds:Identifiable, Codable {
     var id = UUID()
     
-    let userId: Int
-    let postId: Int
-    let title: String
-    let body: String
+    let userKey: Int
+    let name, profileImg, subMessage: String
     
-    private enum CodingKeys: String, CodingKey {
-        case userId
-        case postId = "id" // 서버에서 받는 데이터의 키명
-        case title
-        case body
+    enum CodingKeys: String, CodingKey {
+        case userKey = "id"
+        case name, profileImg, subMessage
     }
 }
+
+
 
 struct testModel: Identifiable, Codable {
     var id = UUID()

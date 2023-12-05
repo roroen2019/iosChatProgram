@@ -10,7 +10,7 @@ import SwiftUI
 struct NickNameView: View {
     
     @Binding var isDismiss: Bool
-    @ObservedObject private var viewModel = NickNameViewViewModel()
+    @StateObject private var viewModel = NickNameViewViewModel()
     
     
     var body: some View {
@@ -25,9 +25,6 @@ struct NickNameView: View {
                     print("닉네임 확인:\(viewModel.inputNickName)")
                     // 로그인 완료되면 dismiss 한뒤 특정뷰로 이동
                     viewModel.nickNameConfirm()
-                    if viewModel.loginComplete {
-                        self.isDismiss = false
-                    }
                 } label: {
                     Text("확인")
                         .padding()
@@ -35,13 +32,21 @@ struct NickNameView: View {
                         .background(Color.blue)
                         .cornerRadius(10)
                 }
+                
+                
+                
             }
             .padding()
+            
         }
         .onAppear{
             print("NickNameView onAppear")
         }
-        
+        .onChange(of: viewModel.loginComplete) { newValue in
+            if newValue {
+                self.isDismiss.toggle()
+            }
+        }
         
         
         

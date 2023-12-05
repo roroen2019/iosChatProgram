@@ -11,7 +11,7 @@ import Combine
 struct SnsLoginView: View {
     
     @StateObject var viewModel = SnsLoginViewViewModel()
-//    @Environment(\.scenePhase) private var scenePhase
+
     
     var body: some View {
         ZStack {
@@ -75,10 +75,6 @@ struct SnsLoginView: View {
                     MainTabView(isRoot: $viewModel.nickNameViewDisMiss)
                 }
             }
-            
-            
-            
-            
         }
         
         
