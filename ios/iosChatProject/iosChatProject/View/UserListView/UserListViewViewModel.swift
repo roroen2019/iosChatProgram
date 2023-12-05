@@ -33,7 +33,6 @@ class UserListViewViewModel: ObservableObject {
             } // 실패, 오류를 발생시키는 map
             .decode(type: [UserListViewModel].self, decoder: JSONDecoder()) //디코딩
             .sink { completion in
-                
                 print("completion 확인:\(completion)")
             } receiveValue: { [weak self] returnPost in
                 self?.userList = returnPost //약한참조

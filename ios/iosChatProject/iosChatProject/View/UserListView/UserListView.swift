@@ -69,6 +69,7 @@ struct UserListView: View {
                 }
                 .padding(.horizontal, 20)
                 
+                let _ = print("list \(viewModel.userList)")
                 // 리스트
                 List{
                     ForEach(viewModel.userList) { item in

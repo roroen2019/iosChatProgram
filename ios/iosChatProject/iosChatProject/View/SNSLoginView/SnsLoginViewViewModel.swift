@@ -7,17 +7,23 @@
 
 import Foundation
 import KakaoSDKUser
-//import Combine
+
 
 class SnsLoginViewViewModel: ObservableObject {
-//    private var cancellables: Set<AnyCancellable> = []
     
-    @Published var checkKakaoLogin: Bool = false
-    @Published var checkAppleLogin: Bool = false
+    @Published var checkKakaoLogin = false
+    @Published var checkAppleLogin = false
+    
+    @Published var nickNameViewDisMiss = false
     
     
     // 카카오 로그인
     func kakaoLoginAction(){
+//        self.checkKakaoLogin = true
+//        self.nickNameViewDisMiss = true
+        
+        
+        
         // 카카오톡 실행 가능 여부 확인
         if (UserApi.isKakaoTalkLoginAvailable()) {
             UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
@@ -29,23 +35,28 @@ class SnsLoginViewViewModel: ObservableObject {
 
                     //do something
                     _ = oauthToken
-                    self.checkKakaoLogin = true
+//                    self.checkKakaoLogin = true
                 }
             }
         } else { //카카오 계정으로 로그인
             print("카카오톡 앱 없음")
+            
             UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
-                
+
                 guard error == nil else {
-                    print("웹페이지 로그인 에러:\(String(describing: error))")
+                    //print("웹페이지 로그인 에러:\(String(describing: error))")
+                    print("웹페이지 로그인 에러")
                     return
                 }
-                
-                print("카카오 토큰:\(String(describing: oauthToken))")
-                let token = oauthToken?.accessToken ?? ""
-                
-                // 토큰 저장
-                guard token != "" else { return }
+
+                //print("카카오 토큰:\(String(describing: oauthToken))")
+
+                guard let token = oauthToken?.accessToken else {
+                    print("카카오 토큰이 없다!")
+                    return
+                }
+
+
                 // realm
                 let login = LoginInfo()
                 login.platform = "kakao"
@@ -53,13 +64,20 @@ class SnsLoginViewViewModel: ObservableObject {
                 LocalDB.shared.dataSave(model: login) { result in
                     switch result {
                     case .success(_):
+
                         self.checkKakaoLogin = true
+                        self.nickNameViewDisMiss = true
+                        print("asdf 로그인정보 저장 성공\(self.checkKakaoLogin)")
+
+
                     case .failure(_):
                         print("로그인정보 저장 실패")
                     }
                 }
             }
         }
+        
+        
     }
     
     // 애플 로그인

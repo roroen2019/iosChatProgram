@@ -38,6 +38,8 @@
 		42E3FE1D2B19A14D00BDFCBA /* LocalDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE1C2B19A14D00BDFCBA /* LocalDB.swift */; };
 		42E3FE1F2B19A3A100BDFCBA /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE1E2B19A3A100BDFCBA /* RealmModel.swift */; };
 		42E3FE212B19B0C700BDFCBA /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE202B19B0C700BDFCBA /* Common.swift */; };
+		42E3FE2B2B1D99AF00BDFCBA /* NickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE2A2B1D99AF00BDFCBA /* NickNameView.swift */; };
+		42E3FE2D2B1D9B5400BDFCBA /* NickNameViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE2C2B1D9B5400BDFCBA /* NickNameViewViewModel.swift */; };
 		BC8003FFA4447F1804BBDF03 /* Pods_iosChatProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B61006C61E456B7AE3D3A7 /* Pods_iosChatProjectTests.framework */; };
 		E3DFAA7DD02B9785795FC375 /* Pods_iosChatProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAF029DD8CCA36DC0EF14C1 /* Pods_iosChatProject.framework */; };
 		FFA149B740912844C38A3393 /* Pods_iosChatProject_iosChatProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC91A02D34C3659518520F4B /* Pods_iosChatProject_iosChatProjectUITests.framework */; };
@@ -97,6 +99,8 @@
 		42E3FE1C2B19A14D00BDFCBA /* LocalDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDB.swift; sourceTree = "<group>"; };
 		42E3FE1E2B19A3A100BDFCBA /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		42E3FE202B19B0C700BDFCBA /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		42E3FE2A2B1D99AF00BDFCBA /* NickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameView.swift; sourceTree = "<group>"; };
+		42E3FE2C2B1D9B5400BDFCBA /* NickNameViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewViewModel.swift; sourceTree = "<group>"; };
 		45950F7FAFA09D948E7C568E /* Pods-iosChatProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosChatProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-iosChatProjectTests/Pods-iosChatProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		73727DE834374E7CD2F7EF43 /* Pods-iosChatProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosChatProject.debug.xcconfig"; path = "Target Support Files/Pods-iosChatProject/Pods-iosChatProject.debug.xcconfig"; sourceTree = "<group>"; };
 		73D0891E86889327A7B375FB /* Pods-iosChatProject-iosChatProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosChatProject-iosChatProjectUITests.debug.xcconfig"; path = "Target Support Files/Pods-iosChatProject-iosChatProjectUITests/Pods-iosChatProject-iosChatProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 		42E3FDDD2B145AAB00BDFCBA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				42E3FE292B1D99A000BDFCBA /* NickNameView */,
 				42E3FE192B19939B00BDFCBA /* ContentView */,
 				42E3FE142B185CF800BDFCBA /* SearchView */,
 				42E3FE0D2B18358500BDFCBA /* FriendAddView */,
@@ -317,6 +322,15 @@
 				42E3FE1A2B1993B000BDFCBA /* ContentViewViewModel.swift */,
 			);
 			path = ContentView;
+			sourceTree = "<group>";
+		};
+		42E3FE292B1D99A000BDFCBA /* NickNameView */ = {
+			isa = PBXGroup;
+			children = (
+				42E3FE2A2B1D99AF00BDFCBA /* NickNameView.swift */,
+				42E3FE2C2B1D9B5400BDFCBA /* NickNameViewViewModel.swift */,
+			);
+			path = NickNameView;
 			sourceTree = "<group>";
 		};
 		B5FA91DC7EB37203565064BD /* Frameworks */ = {
@@ -576,6 +590,7 @@
 				42E3FE092B17388D00BDFCBA /* ChatListView.swift in Sources */,
 				42E3FDEB2B14736200BDFCBA /* UserListViewModel.swift in Sources */,
 				42E3FE0F2B18358D00BDFCBA /* FriendAddView.swift in Sources */,
+				42E3FE2B2B1D99AF00BDFCBA /* NickNameView.swift in Sources */,
 				42E3FDE92B14722B00BDFCBA /* UserListViewViewModel.swift in Sources */,
 				42E3FE1D2B19A14D00BDFCBA /* LocalDB.swift in Sources */,
 				42E3FDB42B144F1D00BDFCBA /* iosChatProjectApp.swift in Sources */,
@@ -593,6 +608,7 @@
 				42E3FDFB2B170C6A00BDFCBA /* MoreListCell.swift in Sources */,
 				42E3FE1F2B19A3A100BDFCBA /* RealmModel.swift in Sources */,
 				42E3FE132B18381A00BDFCBA /* ApiCaller.swift in Sources */,
+				42E3FE2D2B1D9B5400BDFCBA /* NickNameViewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

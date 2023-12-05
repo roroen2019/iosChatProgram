@@ -51,6 +51,7 @@ struct MoreView: View {
         .alert(alertMessage.title, isPresented: $checkLogout) {
             Button {
                 print("로그아웃 확인")
+                viewModel.logout()
                 self.isRoot = false
                 
             } label: {

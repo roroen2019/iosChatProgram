@@ -32,7 +32,7 @@ final class ApiCaller: NSObject {
 
         AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString)).response { response in
             // 헤더 확인
-            let header = response.response
+//            let header = response.response
 //            print("헤더:\(header)")
 //            print("리퀘스트 확인:\(response.request)")
 //            let statusCode = header?.statusCode ?? 0
@@ -70,7 +70,7 @@ final class ApiCaller: NSObject {
 
         AF.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).response { response in
             // 헤더 확인
-            let header = response.response
+//            let header = response.response
 //            print("헤더:\(header)")
 //            print("리퀘스트 확인:\(response.request)")
 //            let statusCode = header?.statusCode ?? 0

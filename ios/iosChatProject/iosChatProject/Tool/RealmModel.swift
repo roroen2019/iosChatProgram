@@ -12,7 +12,7 @@ import RealmSwift
 class LoginInfo: Object {
     @Persisted var platform: String
     @Persisted var token: String
-    
+    @Persisted var userKey: String
 }
 
 class FirstStartApp: Object {
