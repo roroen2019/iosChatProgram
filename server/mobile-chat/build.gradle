@@ -21,6 +21,8 @@ dependencies {
     // TODO: can not symbol error 해결 하기 위해 추가함
     annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
+    // maven repo thymeleaf
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:3.2.0'
     // maven repo websocket
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
     // maven repo web MVC
