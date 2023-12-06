@@ -25,6 +25,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:3.2.0'
     // maven repo websocket
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    // maven repo stomp websocket
+    implementation 'org.webjars:stomp-websocket:2.3.4'
     // maven repo web MVC
     implementation 'org.springframework.boot:spring-boot-starter-web'
     // maven repo JPA
