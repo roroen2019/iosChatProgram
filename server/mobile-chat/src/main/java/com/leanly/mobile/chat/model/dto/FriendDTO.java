@@ -8,10 +8,8 @@ import lombok.Getter;
 public class FriendDTO {
 
     private List<Member> friendsInfo;
-//    private Long memberId;
 
     public FriendDTO(List<Member> friendsInfo) {
         this.friendsInfo = friendsInfo;
-//        this.memberId = memberId;
     }
 }
