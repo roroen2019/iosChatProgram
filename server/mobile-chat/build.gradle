@@ -1,25 +1,43 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.2.0'
-	id 'io.spring.dependency-management' version '1.1.4'
+    id 'java'
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'com.leanly'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
 java {
-	sourceCompatibility = '17'
+    sourceCompatibility = '17'
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // maven repo lombok
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    // TODO: can not symbol error 해결 하기 위해 추가함
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    // maven repo thymeleaf
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:3.2.0'
+    // maven repo websocket
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    // maven repo web MVC
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // maven repo JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.2.0'
+    // maven repo mysql
+    implementation 'com.mysql:mysql-connector-j:8.0.33'
+    // maven repo openapi swagger
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
+
+    // maven repo spring boot test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
