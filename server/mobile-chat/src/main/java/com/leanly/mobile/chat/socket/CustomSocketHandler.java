@@ -32,7 +32,7 @@ public class CustomSocketHandler extends TextWebSocketHandler {
         System.out.println(session + " 클라이언트 접속!!");
     }
 
-    /* Client가 접속 해 제시 호출되는 메서드 */
+    /* Client가 접속 해제시 호출되는 메서드 */
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status)
         throws Exception {
