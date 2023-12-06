@@ -139,7 +139,8 @@ public class MemberController {
             e.printStackTrace();
             return new ResponseEntity(Response.badRequest(), HttpStatus.BAD_REQUEST);
         }
-
+        // TODO: 유저 친구 리스트 보내 줄 때 Member 필드 값 중 friends 정보만 wrapping 해서 보내자
+        // TODO: 응답 데이터의 키 값은 "friends" 를 사용한다.
         return new ResponseEntity(Response.success(memberFriends), HttpStatus.OK);
     }
 
