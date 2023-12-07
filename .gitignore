@@ -194,4 +194,4 @@ xcuserdata/
 # End of https://www.toptal.com/developers/gitignore/api/intellij,intellij+all,intellij+iml,xcode
 
 ### application.yml ###
-server/mobile-chat/src/main/resources/
+server/mobile-chat/src/main/resources/application.yml
