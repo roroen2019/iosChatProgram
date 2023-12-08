@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 
 class UserListViewViewModel: ObservableObject {
+    
     @Published var userList: [Frinds] = []
     private var cancellables: Set<AnyCancellable> = []
     
@@ -42,33 +43,44 @@ class UserListViewViewModel: ObservableObject {
     
     //MARK: - 친구리스트 요청
     func fetchUserList() {
+        print("친구리스트 요청")
+        let list = [
+            Frinds(userKey: 10, name: "김승규", profileImg: "", subMessage: "하암.."),
+            Frinds(userKey: 11, name: "신상호", profileImg: "", subMessage: "씹."),
+            Frinds(userKey: 12, name: "이신호", profileImg: "", subMessage: "헬프 미"),
+            Frinds(userKey: 13, name: "김규신", profileImg: "", subMessage: "ㅋㅋ"),
+        ]
+        
+        DispatchQueue.main.async {
+            self.userList = list
+        }
+        
         
         // 내 키값 가져오기
-        let result = LocalDB.shared.dataRead(model: LoginInfo.self)
-        print("저장정보 확인:\(result)")
-        guard let myKey = result?.first?.userKey else { return }
-        
-        let endUrl = "v1/search-friend/\(myKey)"
-        
-        
-        // 서버에서 리스트가 변동사항이 있다고 알려주면 동작
-        if Common.changeUserListBool {
-            
-            ApiCaller.shared.getData(endUrl: endUrl, parameters: nil, returnType: UserListModel.self) { result in
-                switch result {
-                case .success(let success):
-                    print("success:\(success)")
-                    
-                    self.userList = success.data
-                    
-                case .failure(let failure):
-                    print("API - \(endUrl) Error: \(failure)")
-                }
-            }
-            
-            // 밑의코드를 실행시키지 않기위해 return 사용, 밑에는 앱 최초 한번 실행시에만 동작
-            return
-        }
+//        let result = LocalDB.shared.dataRead(model: LoginInfo.self)
+////        print("저장정보 확인:\(result)")
+//        guard let myKey = result?.first?.userKey else { return }
+//
+//        let endUrl = "v1/search-friend/\(myKey)"
+//
+//        // 서버에서 리스트가 변동사항이 있다고 알려주면 동작
+//        if Common.changeUserListBool {
+//
+//            ApiCaller.shared.getData(endUrl: endUrl, parameters: nil, returnType: UserListModel.self) { result in
+//                switch result {
+//                case .success(let success):
+//                    print("success:\(success)")
+//
+//                    self.userList = success.data
+//
+//                case .failure(let failure):
+//                    print("API - \(endUrl) Error: \(failure)")
+//                }
+//            }
+//
+//            // 밑의코드를 실행시키지 않기위해 return 사용, 밑에는 앱 최초 한번 실행시에만 동작
+//            return
+//        }
         
         
         

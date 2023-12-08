@@ -16,7 +16,7 @@ class ContentViewViewModel : ObservableObject {
     func checkUserData() {
         let result = LocalDB.shared.dataRead(model: LoginInfo.self)
         guard result != nil else { return }
-        print("로그인정보:\(result?.count)")
+//        print("로그인정보:\(result?.count)")
         self.checkLogin = true
         
     }

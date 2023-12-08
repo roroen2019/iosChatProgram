@@ -10,7 +10,7 @@
 import SwiftUI
 
 struct ChatView: View {
-    var nickName: String
+    var roomName: String
     var roomId: String
     
     @StateObject var viewModel = ChatViewViewModel()
@@ -28,9 +28,22 @@ struct ChatView: View {
         NavigationStack {
             VStack {
                 List {
-//                    ForEach(viewModel.chatList) { item in
-//                        Text(item)
-//                    }
+                    ForEach(viewModel.chatList) { item in
+                        if item.stats == 0 {
+                            ChatViewAlertCell(message: item.message)
+                                .frame(height: 30)
+                                .listRowSeparator(.hidden)
+                        } else if item.writer == viewModel.myNickName {
+                          // 내가 입력할경우
+                            ChatViewMyCell(date: item.date, message: item.message)
+                                .listRowSeparator(.hidden)
+                        } else {
+                            // 상대방이 입력한경우
+                            ChatViewCell(profileImage: "", writer: item.writer, message: item.message, date: item.date)
+                                .listRowSeparator(.hidden)
+                        }
+                        
+                    }
                 }
                 .listStyle(PlainListStyle())
                 
@@ -42,7 +55,8 @@ struct ChatView: View {
                             .padding()
                         
                         Button {
-                            viewModel.sendMessage(message: viewModel.inputChatMessage, nickName: self.nickName)
+                            viewModel.sendMessage()
+                            viewModel.saveChatList()
                         } label: {
                             Text("전송")
                                 
@@ -59,11 +73,13 @@ struct ChatView: View {
         }
         .onAppear {
             print("chatView onAppear")
-            viewModel.connectToSever(nickName: self.nickName)
-            viewModel.newChatMessage()
+            viewModel.roomId = self.roomId
+            viewModel.setNickName()
+            viewModel.registerSockect()
+            viewModel.enterChatRoom()
             
         }
-        .navigationTitle(nickName)
+        .navigationTitle(roomName)
         .onReceive(userConnectedPublisher) { _ in
             print("유저연결")
         }
@@ -81,6 +97,6 @@ struct ChatView: View {
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView(nickName: "", roomId: "")
+        ChatView(roomName: "", roomId: "")
     }
 }

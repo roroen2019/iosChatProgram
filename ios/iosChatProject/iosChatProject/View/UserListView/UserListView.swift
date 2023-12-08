@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UserListView: View {
     
-    @ObservedObject var viewModel = UserListViewViewModel()
+    @StateObject var viewModel = UserListViewViewModel()
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -76,7 +76,7 @@ struct UserListView: View {
                         
                         NavigationLink {
                             // 다음 이동할 뷰 설정
-                            
+                            ChatView(roomName: item.name, roomId: "f07a1262-9fe8-4011-9c13-49f2362a1fe0")
                         } label: {
                             UserListCell(imageUrl: item.profileImg, name: item.name, sub: item.subMessage)
                                 .frame(height: 40)
@@ -94,11 +94,12 @@ struct UserListView: View {
                 }
                 
             }
-            .onAppear {
-                viewModel.fetchUserList()
-            }
+            
         }
         .navigationBarHidden(true)
+        .onAppear{
+            viewModel.fetchUserList()
+        }
     }
 }
 

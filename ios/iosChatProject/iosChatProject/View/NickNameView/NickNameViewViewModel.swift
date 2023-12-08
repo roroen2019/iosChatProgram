@@ -50,6 +50,21 @@ class NickNameViewViewModel: ObservableObject {
                 print("\(url) success")
                 
                 let selectModel = localData?.first
+                
+                LocalDB.shared.dataUpdate(model: selectModel!, key: "nickName", value: self?.inputNickName ?? "") { error in
+                    
+                    if let error = error {
+                        print(error)
+                        print("닉네임 업데이트 실패")
+                        
+                    }
+                    else {
+                        print("닉네임 업데이트 성공")
+                        
+                    }
+                }
+                
+                
                 // 기존 유저정보 업데이트하기
                 LocalDB.shared.dataUpdate(model: selectModel!, key: "userKey", value: success.userKey) { error in
                     
@@ -63,6 +78,10 @@ class NickNameViewViewModel: ObservableObject {
                         self?.loginComplete = true
                     }
                 }
+                
+                
+                
+                
                 
             case .failure(let failure):
                 print("\(url) failure message: \(failure)")

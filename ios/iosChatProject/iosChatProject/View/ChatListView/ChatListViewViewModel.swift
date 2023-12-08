@@ -19,7 +19,9 @@ class ChatListViewViewModel: ObservableObject {
             switch result {
             case .success(let success):
                 print("성공")
-                self.chatUserList = success
+                DispatchQueue.main.async {
+                    self.chatUserList = success
+                }
             case .failure(let failure):
                 print("실패")
                 print("API - \(endUrl) Error: \(failure)")

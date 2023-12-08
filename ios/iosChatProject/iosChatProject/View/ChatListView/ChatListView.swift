@@ -18,7 +18,7 @@ struct ChatListView: View {
             List {
                 ForEach(viewModel.chatUserList) { item in
                     NavigationLink {
-                        ChatView(nickName: item.name, roomId: item.roomId)
+                        ChatView(roomName: item.name, roomId: item.roomId)
                     } label: {
                         ChatListCell(imageUrl: "", name: item.name, sub: "sub", time: "22d")
                             .listRowSeparator(.hidden)
