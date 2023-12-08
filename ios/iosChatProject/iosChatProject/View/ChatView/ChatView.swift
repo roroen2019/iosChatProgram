@@ -11,7 +11,7 @@ import SwiftUI
 
 struct ChatView: View {
     var nickName: String
-    var userKey: Int
+    var roomId: String
     
     @StateObject var viewModel = ChatViewViewModel()
     
@@ -28,23 +28,38 @@ struct ChatView: View {
         NavigationStack {
             VStack {
                 List {
-                    Text("")
+//                    ForEach(viewModel.chatList) { item in
+//                        Text(item)
+//                    }
                 }
                 .listStyle(PlainListStyle())
                 
                 
                 VStack {
-                    TextField("내용을 입력하세요.", text: $viewModel.inputChatMessage)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
+                    HStack {
+                        TextField("내용을 입력하세요.", text: $viewModel.inputChatMessage)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding()
+                        
+                        Button {
+                            viewModel.sendMessage(message: viewModel.inputChatMessage, nickName: self.nickName)
+                        } label: {
+                            Text("전송")
+                                
+                        }
+
+                    }
+                    
                 }
                 .frame(height: 50)
                 .background(Color.white)
                 
             }
+            .padding()
         }
         .onAppear {
             print("chatView onAppear")
+            viewModel.connectToSever(nickName: self.nickName)
             viewModel.newChatMessage()
             
         }
@@ -66,6 +81,6 @@ struct ChatView: View {
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView(nickName: "", userKey: 0)
+        ChatView(nickName: "", roomId: "")
     }
 }

@@ -18,19 +18,25 @@ struct ChatListView: View {
             List {
                 ForEach(viewModel.chatUserList) { item in
                     NavigationLink {
-                        ChatView(nickName: item.name, userKey: item.userId)
+                        ChatView(nickName: item.name, roomId: item.roomId)
                     } label: {
-                        ChatListCell(imageUrl: "", name: item.name, sub: "", time: "22d")
+                        ChatListCell(imageUrl: "", name: item.name, sub: "sub", time: "22d")
                             .listRowSeparator(.hidden)
                     }
                 }
             }
-            .listStyle(PlainListStyle())
             .environment(\.defaultMinListRowHeight, 50)
+            .overlay {
+                // 데이터가 없을경우
+                if viewModel.chatUserList.isEmpty {
+                    Text("채팅기록이 없습니다.")
+                        .multilineTextAlignment(.center)
+                }
+            }
 
         }
         .onAppear {
-            viewModel.fetchChatUserList()
+            viewModel.fetchChatRoomList()
         }
     }
 }

@@ -44,6 +44,10 @@
 		42E3FE312B1F0A8800BDFCBA /* ChatViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE302B1F0A8800BDFCBA /* ChatViewViewModel.swift */; };
 		42E3FE332B1F113B00BDFCBA /* sampleCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE322B1F113B00BDFCBA /* sampleCode.swift */; };
 		42E3FE352B1F125000BDFCBA /* ChatListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE342B1F125000BDFCBA /* ChatListViewViewModel.swift */; };
+		42E3FE362B2017CC00BDFCBA /* UserListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FDE82B14722B00BDFCBA /* UserListViewViewModel.swift */; };
+		42E3FE382B2181B100BDFCBA /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3FE372B2181B100BDFCBA /* ChatListViewModel.swift */; };
+		42E3FE3C2B21B0FA00BDFCBA /* sockjs.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 42E3FE3A2B21B0FA00BDFCBA /* sockjs.min.js */; };
+		42E3FE3D2B21B0FA00BDFCBA /* stomp.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 42E3FE3B2B21B0FA00BDFCBA /* stomp.min.js */; };
 		BC8003FFA4447F1804BBDF03 /* Pods_iosChatProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B61006C61E456B7AE3D3A7 /* Pods_iosChatProjectTests.framework */; };
 		E3DFAA7DD02B9785795FC375 /* Pods_iosChatProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAF029DD8CCA36DC0EF14C1 /* Pods_iosChatProject.framework */; };
 		FFA149B740912844C38A3393 /* Pods_iosChatProject_iosChatProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC91A02D34C3659518520F4B /* Pods_iosChatProject_iosChatProjectUITests.framework */; };
@@ -109,6 +113,9 @@
 		42E3FE302B1F0A8800BDFCBA /* ChatViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewViewModel.swift; sourceTree = "<group>"; };
 		42E3FE322B1F113B00BDFCBA /* sampleCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sampleCode.swift; sourceTree = "<group>"; };
 		42E3FE342B1F125000BDFCBA /* ChatListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewViewModel.swift; sourceTree = "<group>"; };
+		42E3FE372B2181B100BDFCBA /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
+		42E3FE3A2B21B0FA00BDFCBA /* sockjs.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sockjs.min.js; sourceTree = "<group>"; };
+		42E3FE3B2B21B0FA00BDFCBA /* stomp.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = stomp.min.js; sourceTree = "<group>"; };
 		45950F7FAFA09D948E7C568E /* Pods-iosChatProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosChatProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-iosChatProjectTests/Pods-iosChatProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		73727DE834374E7CD2F7EF43 /* Pods-iosChatProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosChatProject.debug.xcconfig"; path = "Target Support Files/Pods-iosChatProject/Pods-iosChatProject.debug.xcconfig"; sourceTree = "<group>"; };
 		73D0891E86889327A7B375FB /* Pods-iosChatProject-iosChatProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosChatProject-iosChatProjectUITests.debug.xcconfig"; path = "Target Support Files/Pods-iosChatProject-iosChatProjectUITests/Pods-iosChatProject-iosChatProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -185,6 +192,7 @@
 		42E3FDB22B144F1D00BDFCBA /* iosChatProject */ = {
 			isa = PBXGroup;
 			children = (
+				42E3FE392B21B0DA00BDFCBA /* JS */,
 				42E3FE0C2B182FEA00BDFCBA /* Info.plist */,
 				42E3FE012B17227100BDFCBA /* Tool */,
 				42E3FDDD2B145AAB00BDFCBA /* View */,
@@ -223,16 +231,16 @@
 		42E3FDDD2B145AAB00BDFCBA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				42E3FE292B1D99A000BDFCBA /* NickNameView */,
 				42E3FE192B19939B00BDFCBA /* ContentView */,
+				42E3FDF52B16FECE00BDFCBA /* MainTabView */,
+				42E3FDE12B14637100BDFCBA /* UserListView */,
+				42E3FE072B17387400BDFCBA /* ChatListView */,
+				42E3FDE52B14644300BDFCBA /* MoreView */,
+				42E3FE292B1D99A000BDFCBA /* NickNameView */,
 				42E3FE142B185CF800BDFCBA /* SearchView */,
 				42E3FE0D2B18358500BDFCBA /* FriendAddView */,
-				42E3FE072B17387400BDFCBA /* ChatListView */,
 				42E3FE042B172D1600BDFCBA /* ChatView */,
-				42E3FDF52B16FECE00BDFCBA /* MainTabView */,
 				42E3FDEE2B16E53D00BDFCBA /* SNSLoginView */,
-				42E3FDE52B14644300BDFCBA /* MoreView */,
-				42E3FDE12B14637100BDFCBA /* UserListView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -305,6 +313,7 @@
 				42E3FE082B17388D00BDFCBA /* ChatListView.swift */,
 				42E3FE342B1F125000BDFCBA /* ChatListViewViewModel.swift */,
 				42E3FE0A2B17391D00BDFCBA /* ChatListCell.swift */,
+				42E3FE372B2181B100BDFCBA /* ChatListViewModel.swift */,
 			);
 			path = ChatListView;
 			sourceTree = "<group>";
@@ -343,6 +352,15 @@
 				42E3FE2C2B1D9B5400BDFCBA /* NickNameViewViewModel.swift */,
 			);
 			path = NickNameView;
+			sourceTree = "<group>";
+		};
+		42E3FE392B21B0DA00BDFCBA /* JS */ = {
+			isa = PBXGroup;
+			children = (
+				42E3FE3A2B21B0FA00BDFCBA /* sockjs.min.js */,
+				42E3FE3B2B21B0FA00BDFCBA /* stomp.min.js */,
+			);
+			path = JS;
 			sourceTree = "<group>";
 		};
 		B5FA91DC7EB37203565064BD /* Frameworks */ = {
@@ -464,7 +482,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E3FE3D2B21B0FA00BDFCBA /* stomp.min.js in Resources */,
 				42E3FDBB2B144F1E00BDFCBA /* Preview Assets.xcassets in Resources */,
+				42E3FE3C2B21B0FA00BDFCBA /* sockjs.min.js in Resources */,
 				42E3FDB82B144F1E00BDFCBA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -608,6 +628,7 @@
 				42E3FE1D2B19A14D00BDFCBA /* LocalDB.swift in Sources */,
 				42E3FDB42B144F1D00BDFCBA /* iosChatProjectApp.swift in Sources */,
 				42E3FE162B185D1C00BDFCBA /* SearchView.swift in Sources */,
+				42E3FE382B2181B100BDFCBA /* ChatListViewModel.swift in Sources */,
 				42E3FE1B2B1993B000BDFCBA /* ContentViewViewModel.swift in Sources */,
 				42E3FE062B172D6400BDFCBA /* ChatView.swift in Sources */,
 				42E3FDE42B1463D100BDFCBA /* UserListView.swift in Sources */,
@@ -632,6 +653,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E3FE362B2017CC00BDFCBA /* UserListViewViewModel.swift in Sources */,
 				42E3FDC52B144F1F00BDFCBA /* iosChatProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

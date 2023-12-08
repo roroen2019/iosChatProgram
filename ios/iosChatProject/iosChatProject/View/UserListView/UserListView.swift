@@ -76,7 +76,7 @@ struct UserListView: View {
                         
                         NavigationLink {
                             // 다음 이동할 뷰 설정
-                            ChatView(nickName: item.name, userKey: item.userKey)
+                            
                         } label: {
                             UserListCell(imageUrl: item.profileImg, name: item.name, sub: item.subMessage)
                                 .frame(height: 40)
@@ -85,6 +85,13 @@ struct UserListView: View {
                     }
                 }
                 .listStyle(PlainListStyle())
+                .overlay {
+                    // 데이터가 없을경우
+                    if viewModel.userList.isEmpty {
+                        Text("유저목록이 없습니다.\n새로운 유저를 추가해주세요.")
+                            .multilineTextAlignment(.center)
+                    }
+                }
                 
             }
             .onAppear {

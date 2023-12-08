@@ -7,29 +7,24 @@
 
 import Foundation
 
-struct ChatListViewModel: Identifiable {
-    let id = UUID()
-    
-    let name: String
-    let userId:Int
-}
-
 class ChatListViewViewModel: ObservableObject {
     
-    @Published var chatUserList: [ChatListViewModel] = []
+    @Published var chatUserList = ChatListViewModel()
     
-    func fetchChatUserList() {
-        
-        let testList = [
-            ChatListViewModel(name: "테스트111", userId: 111),
-            ChatListViewModel(name: "테스트222", userId: 222),
-            ChatListViewModel(name: "테스트333", userId: 333),
-            ChatListViewModel(name: "테스트444", userId: 444)
-        ]
-        
-        self.chatUserList = testList
+    func fetchChatRoomList() {
         
         
+        let endUrl = "chat/rooms"
+        ApiCaller.shared.getData(endUrl: endUrl, parameters: nil, returnType: ChatListViewModel.self) { result in
+            switch result {
+            case .success(let success):
+                print("성공")
+                self.chatUserList = success
+            case .failure(let failure):
+                print("실패")
+                print("API - \(endUrl) Error: \(failure)")
+            }
+        }
     }
     
     

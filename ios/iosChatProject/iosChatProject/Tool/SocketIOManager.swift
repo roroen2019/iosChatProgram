@@ -12,9 +12,10 @@ class SocketIOManager: NSObject {
     static let shared = SocketIOManager()
     
     // socketIO 기본 클래스
-    var manager = SocketManager(socketURL: URL(string: Common.baseUrl)!, config: [.log(true), .compress])
+    
+    var manager = SocketManager(socketURL: URL(string: "http://54.180.77.161/stomp/chat")!, config: [.log(true), .compress])
 //    let socket = manager.defaultSocket
-
+    
     var socket:SocketIOClient!
     
     //클라이언트 소캣 초기화

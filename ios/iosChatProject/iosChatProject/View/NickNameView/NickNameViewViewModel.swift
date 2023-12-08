@@ -17,6 +17,7 @@ class NickNameViewViewModel: ObservableObject {
     @Published var inputNickName = ""
     @Published var loginComplete = false
     
+    //MARK: 닉네임 확인하기
     func nickNameConfirm(){
         
         // 저장값 가져오기
@@ -35,9 +36,8 @@ class NickNameViewViewModel: ObservableObject {
             return
         }
         
-        
         // 로그인 api
-        let url = "signup"
+        let url = "v1/signup"
         let parameter: [String:Any] = [
             "snsToken": token,
             "type": platform,

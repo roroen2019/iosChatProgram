@@ -46,13 +46,13 @@ final class ApiCaller: NSObject {
 
             switch response.result {
             case .success(let data):
-//                print(String(data: data!, encoding: .utf8) ?? "Invalid Data")
-
+                print(String(data: data!, encoding: .utf8) ?? "Invalid Data")
+                
                 // 디코드
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
+//                let decoder = JSONDecoder()
+//                decoder.keyDecodingStrategy = .convertFromSnakeCase
 
-                guard let result = try? decoder.decode(returnType, from: data!) else {
+                guard let result = try? JSONDecoder().decode(returnType, from: data!) else {
                     completion(.failure(.faildDecode))
                     return
                 }

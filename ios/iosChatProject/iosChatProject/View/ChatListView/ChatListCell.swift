@@ -22,13 +22,16 @@ struct ChatListCell: View {
                 } placeholder: {
                     Color.red
                 }
-                .frame(width: 50, height: 50)
+                .frame(width: 45, height: 45)
+                .cornerRadius(10)
                 
                 VStack {
                     Text(name)
-                        .padding(.bottom, 4)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     Text(sub)
+                        .font(.system(size: 14))
                         .foregroundColor(Color.black.opacity(0.6))
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(.leading, 10)
                 
@@ -36,13 +39,12 @@ struct ChatListCell: View {
                 
                 Text(time)
             }
-            Divider()
         }
     }
 }
 
 struct ChatListCell_Previews: PreviewProvider {
     static var previews: some View {
-        ChatListCell(imageUrl: "", name: "sss", sub: "sss", time: "sss")
+        ChatListCell(imageUrl: "", name: "sss", sub: "ssasass", time: "sss")
     }
 }

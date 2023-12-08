@@ -40,7 +40,7 @@ class UserListViewViewModel: ObservableObject {
 //            .store(in: &cancellables)
 //    }
     
-    // 친구리스트 요청
+    //MARK: - 친구리스트 요청
     func fetchUserList() {
         
         // 내 키값 가져오기
@@ -48,7 +48,7 @@ class UserListViewViewModel: ObservableObject {
         print("저장정보 확인:\(result)")
         guard let myKey = result?.first?.userKey else { return }
         
-        let endUrl = "search-friend/\(myKey)"
+        let endUrl = "v1/search-friend/\(myKey)"
         
         
         // 서버에서 리스트가 변동사항이 있다고 알려주면 동작
