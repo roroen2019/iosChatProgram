@@ -112,11 +112,6 @@ public class RoomController {
     public ChatRoomDTO createRoom(@RequestParam(name = "name") String name) {
         log.info("# 채팅방 개설!!!! , 채팅방 이름: " + name);
 
-//        redirectAttributes.addFlashAttribute(
-//            "roomName",
-//            chatRoomRepository.createChatRoomDTO(name)
-//        );
-
         return chatRoomRepository.createChatRoomDTO(name);
     }
 
@@ -156,9 +151,6 @@ public class RoomController {
         @RequestParam(name = "roomId") String roomId
     ) {
         log.info("# 특정 채팅방 조회!!!! , 채팅방 고유 값 : " + roomId);
-
-        //model.addAttribute("room", chatRoomRepository.findRoomById(roomId));
-        //model.addAttribute("username", username);
 
         return chatRoomRepository.findRoomById(roomId);
     }
