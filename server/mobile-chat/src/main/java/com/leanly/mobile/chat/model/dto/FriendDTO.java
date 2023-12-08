@@ -1,15 +1,19 @@
 package com.leanly.mobile.chat.model.dto;
 
-import com.leanly.mobile.chat.model.entity.Member;
-import java.util.List;
 import lombok.Getter;
 
 @Getter
 public class FriendDTO {
 
-    private List<Member> friendsInfo;
+    private Long id;
+    private String name;
+    private String profileImg;
+    private String subMessage;
 
-    public FriendDTO(List<Member> friendsInfo) {
-        this.friendsInfo = friendsInfo;
+    public FriendDTO(Long id, String name, String profileImg, String subMessage) {
+        this.id = id;
+        this.name = name;
+        this.profileImg = profileImg;
+        this.subMessage = subMessage;
     }
 }

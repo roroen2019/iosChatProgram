@@ -1,10 +1,8 @@
 package com.leanly.mobile.chat.model.dto;
 
-import java.util.HashSet;
-import java.util.Set;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
 import lombok.Getter;
-import org.springframework.web.socket.WebSocketSession;
 
 /*
  * 하나의 채팅방에 모이는 것이 아닌
@@ -13,9 +11,25 @@ import org.springframework.web.socket.WebSocketSession;
 @Getter
 public class ChatRoomDTO {
 
+    @Schema(
+        description = "Chat Room Id",
+        example = "axew123-ropkk31hgsw-32ddpe"
+    )
     private String roomId;
+    @Schema(
+        description = "Chat Room Id",
+        example = "개발자들의 채팅방"
+    )
     private String name;
-    private Set<WebSocketSession> sessions = new HashSet<>();
+
+    public ChatRoomDTO() {
+    }
+
+    public ChatRoomDTO(String roomId, String name) {
+        this.roomId = roomId;
+        this.name = name;
+    }
+
 
     public static ChatRoomDTO create(String name) {
         ChatRoomDTO chatRoomDTO = new ChatRoomDTO();
@@ -24,5 +38,6 @@ public class ChatRoomDTO {
         chatRoomDTO.name = name;
         return chatRoomDTO;
     }
+
 
 }
