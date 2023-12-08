@@ -1,4 +1,4 @@
-package com.leanly.mobile.chat.controller;
+package com.leanly.mobile.chat.controller.chat;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

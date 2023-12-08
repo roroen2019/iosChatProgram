@@ -41,5 +41,12 @@ public class SnsInfo {
         this.type = type;
     }
 
-
+    @Override
+    public String toString() {
+        return "SnsInfo{" +
+            "id=" + id +
+            ", name='" + token + '\'' +
+            ", profileImg='" + type + '\'' +
+            '}';
+    }
 }

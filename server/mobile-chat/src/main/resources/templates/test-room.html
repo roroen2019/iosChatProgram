@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>채팅 페이지입니다.</title>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+  <div style="margin: 1em" class="col-6">
+    <h1>[[${room.name}]]</h1>
+  </div>
+  <div>
+    <div id="msgArea" class="col"></div>
+    <div class="col-6">
+      <div class="input-group mb-3">
+        <input type="text" id="msg" class="form-control" aria-label="input to text"/>
+        <div class="input-group-append">
+          <button class="btn btn-outline-success" type="button" id="button-send">전송</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script th:inline="javascript">
+  let roomName = [[${room.name}]]
+  let roomId = [[${room.roomId}]]
+  let username = [[${username}]]
+
+  console.log(roomName + ", "+roomId+", "+username);
+
+  let sockJs = new SockJS("/stomp/chat");
+  let stomp = Stomp.over(sockJs);
+
+  // 2. connection이 맺어지면 실행
+  stomp.connect({}, function () {
+    console.log("STOMP Connection");
+
+    // 4. subscribe(path, callback)으로 메시지를 받을 수 있음
+    stomp.subscribe("/sub/chat/room/"+roomId,function (chat){
+      let content = JSON.parse(chat.body);
+      let writer = content.writer
+      let str = '';
+
+      if (writer === username){
+        str += "<div class='col-6'>" +
+            "<div class='alert alert-danger'>" +
+            "<b>" +
+            writer +
+            "\t:\t" +
+            content.message +
+            "</b>" +
+            "</div></div>"
+        let msgAreaTag = document.getElementById("msgArea");
+        msgAreaTag.innerHTML += str;
+      } else {
+        str += "<div class='col-6'>" +
+            "<div class='alert alert-warning'>" +
+            "<b>" +
+            writer +
+            "\t:\t" +
+            content.message +
+            "</b>" +
+            "</div></div>"
+        let msgAreaTag = document.getElementById("msgArea");
+        msgAreaTag.innerHTML += str;
+      }
+    });
+    // 3. send(path, header, message)로 메시지로 보낼 수 있다
+    stomp.send("/pub/chat/enter",{},JSON.stringify({roomId: roomId,writer:username}));
+  });
+
+  let send = document.getElementById("button-send");
+  send.addEventListener("click",sendE);
+
+  function sendE(e) {
+    let msg = document.getElementById("msg");
+    console.log(username + ":"+msg.value);
+
+    stomp.send("/pub/chat/message",{},JSON.stringify({roomId:roomId, message: msg.value, writer: username}));
+    msg.value = '';
+  }
+</script>
+
+</body>
+</html>
