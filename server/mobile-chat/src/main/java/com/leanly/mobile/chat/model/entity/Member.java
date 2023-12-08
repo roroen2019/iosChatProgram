@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor
-@Schema(description = "Member Entity Information")
 public class Member {
 
     @Id
@@ -43,9 +42,9 @@ public class Member {
     )
     private String subMessage;
 
+
     @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     private Set<Friend> friends = new LinkedHashSet<>();
-
 
     public Member(String name, String profileImg, String subMessage) {
         this.name = name;

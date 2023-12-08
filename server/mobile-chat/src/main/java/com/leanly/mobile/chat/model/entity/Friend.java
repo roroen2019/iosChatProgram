@@ -11,11 +11,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 @Getter
+@Setter
 @Schema(description = "Friend Entity Information")
 @NoArgsConstructor
+@DynamicUpdate
 public class Friend {
 
     @Id
@@ -32,6 +36,7 @@ public class Friend {
         example = "10"
     )
     private Long fromMemberId;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "to_member_id")
